@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Petualangan Puisi Rakyat - Bahasa Indonesia Kelas VII</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="mainNav" style="display:none;">
+    <div class="nav-brand">📜 Puisi Rakyat</div>
+    <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#" onclick="showSection('beranda')">Beranda</a></li>
+      <li><a href="#" onclick="showSection('tujuan')">Tujuan</a></li>
+      <li><a href="#" onclick="showSection('materi')">Materi</a></li>
+      <li><a href="#" onclick="showSection('identifikasi')">Mengidentifikasi</a></li>
+      <li><a href="#" onclick="showSection('game')">Permainan</a></li>
+      <li><a href="#" onclick="showSection('kuis')">Kuis</a></li>
+      <li><a href="#" onclick="showSection('lkpd')">LKPD Digital</a></li>
+      <li><a href="#" onclick="showSection('hasil')">Hasil Belajar</a></li>
+      <li><a href="#" onclick="showSection('refleksi')">Refleksi</a></li>
+      <li><a href="#" onclick="showSection('guru')">Petunjuk Guru</a></li>
+    </ul>
+  </nav>
+
+  <!-- CONTAINER UTAMA -->
+  <main class="container">
+
+    <!-- 1. HALAMAN PEMBUKA -->
+    <section id="pembuka" class="card active-section text-center">
+      <div class="hero-icon">📖✒️📜</div>
+      <h1 class="title-primary">Petualangan Puisi Rakyat</h1>
+      <p class="subtitle">Jelajahi Pantun, Syair, dan Gurindam Nusantara</p>
+
+      <div class="form-group margin-top-lg">
+        <label for="inputNama">Nama Lengkap Peserta Didik:</label>
+        <input type="text" id="inputNama" class="input-control" placeholder="Contoh: Ahmad Subagja">
+      </div>
+
+      <div class="form-group">
+        <label for="inputKelas">Kelas:</label>
+        <select id="inputKelas" class="input-control">
+          <option value="">-- Pilih Kelas --</option>
+          <option value="VII-A">VII-A</option>
+          <option value="VII-B">VII-B</option>
+          <option value="VII-C">VII-C</option>
+          <option value="VII-D">VII-D</option>
+        </select>
+      </div>
+
+      <div class="button-group">
+        <button class="btn btn-success" onclick="mulaiPetualangan()">🚀 Mulai Petualangan</button>
+        <button class="btn btn-secondary" onclick="bukaModalPetunjuk()">❓ Petunjuk Penggunaan</button>
+      </div>
+    </section>
+
+    <!-- 2. BERANDA -->
+    <section id="beranda" class="card hidden-section">
+      <h2>Selamat Datang, <span id="userNamaDisplay" class="text-highlight">Siswa</span>!</h2>
+      <p>Pilih salah satu petualangan belajar di bawah ini untuk memulai:</p>
+      
+      <div class="grid-menu margin-top-md">
+        <div class="menu-card" onclick="showSection('tujuan')">
+          <div class="icon">🎯</div>
+          <h3>Tujuan</h3>
+          <p>Capaian pembelajaran materi puisi rakyat</p>
+        </div>
+        <div class="menu-card" onclick="showSection('materi')">
+          <div class="icon">📚</div>
+          <h3>Materi</h3>
+          <p>Pelajari Pantun, Syair, & Gurindam</p>
+        </div>
+        <div class="menu-card" onclick="showSection('identifikasi')">
+          <div class="icon">🔍</div>
+          <h3>Mengidentifikasi</h3>
+          <p>Latihan bedah unsur puisi rakyat</p>
+        </div>
+        <div class="menu-card" onclick="showSection('game')">
+          <div class="icon">🎮</div>
+          <h3>Permainan</h3>
+          <p>Asah kemampuan sambil bermain</p>
+        </div>
+        <div class="menu-card" onclick="showSection('kuis')">
+          <div class="icon">📝</div>
+          <h3>Kuis Interaktif</h3>
+          <p>Uji pemahamanmu secara menyeluruh</p>
+        </div>
+        <div class="menu-card" onclick="showSection('lkpd')">
+          <div class="icon">📄</div>
+          <h3>LKPD Digital</h3>
+          <p>Lembar kerja siswa interaktif</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. TUJUAN PEMBELAJARAN -->
+    <section id="tujuan" class="card hidden-section">
+      <h2>🎯 Tujuan Pembelajaran</h2>
+      <p class="margin-bottom-md">Setelah mengikuti petualangan ini, kamu diharapkan mampu:</p>
+      <ul class="list-styled">
+        <li>Menjelaskan pengertian puisi rakyat secara rinci.</li>
+        <li>Mengidentifikasi ciri-ciri umum pantun, syair, dan gurindam.</li>
+        <li>Menentukan jumlah baris, suku kata, dan pola rima puisi rakyat.</li>
+        <li>Membedakan bagian sampiran dan isi pada pantun.</li>
+        <li>Mengidentifikasi pesan, nasihat, atau amanat dalam puisi rakyat.</li>
+        <li>Menganalisis perbedaan pantun, syair, dan gurindam berdasarkan karakteristiknya.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MATERI PEMBELAJARAN INTERAKTIF -->
+    <section id="materi" class="card hidden-section">
+      <h2>📚 Materi Puisi Rakyat</h2>
+      <div class="tab-buttons">
+        <button class="tab-btn active" onclick="switchTab('materiA')">Pengertian</button>
+        <button class="tab-btn" onclick="switchTab('materiB')">Pantun</button>
+        <button class="tab-btn" onclick="switchTab('materiC')">Syair</button>
+        <button class="tab-btn" onclick="switchTab('materiD')">Gurindam</button>
+        <button class="tab-btn" onclick="switchTab('materiE')">Perbandingan</button>
+      </div>
+
+      <!-- MATERI A -->
+      <div id="materiA" class="tab-content active-tab">
+        <h3>A. Pengertian Puisi Rakyat</h3>
+        <p>Puisi rakyat adalah karya sastra tradisional lama yang tumbuh dan berkembang dalam kehidupan masyarakat Melayu/Nusantara serta diwariskan secara turun-temurun secara lisan.</p>
+        <div class="info-box margin-top-md">
+          <strong>Ciri Utama Puisi Rakyat:</strong>
+          <ul>
+            <li>Terikat oleh aturan-aturan baku (jumlah baris, suku kata, dan rima).</li>
+            <li>Pengarangnya umumnya tidak diketahui (anonim).</li>
+            <li>Mengandung nilai moral, agama, nasihat, dan sindiran positif.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MATERI B -->
+      <div id="materiB" class="tab-content">
+        <h3>B. Pantun</h3>
+        <p>Pantun adalah bentuk puisi rakyat yang paling populer di Nusantara.</p>
+        <h4>Ciri-Ciri Utama Pantun:</h4>
+        <ul class="list-styled">
+          <li>Terdiri atas <strong>4 baris</strong> dalam satu bait.</li>
+          <li>Setiap baris umumnya memiliki <strong>8–12 suku kata</strong>.</li>
+          <li>Memiliki pola rima akhir <strong>a-b-a-b</strong>.</li>
+          <li>Baris 1 dan 2 adalah <strong>Sampiran</strong> (pengantar).</li>
+          <li>Baris 3 dan 4 adalah <strong>Isi</strong> (pesan/maksud utama).</li>
+        </ul>
+
+        <div class="poem-card margin-top-md">
+          <div class="poem-line sampiran"><span class="badge-tag">Baris 1 (Sampiran)</span> Pergi ke pasar membeli ikan, <span class="rima">(rima: -an / a)</span></div>
+          <div class="poem-line sampiran"><span class="badge-tag">Baris 2 (Sampiran)</span> Ikan dibawa di dalam peti. <span class="rima">(rima: -ti / b)</span></div>
+          <div class="poem-line isi"><span class="badge-tag">Baris 3 (Isi)</span> Rajin belajar jangan lupakan, <span class="rima">(rima: -an / a)</span></div>
+          <div class="poem-line isi"><span class="badge-tag">Baris 4 (Isi)</span> Agar tercapai cita di hati. <span class="rima">(rima: -ti / b)</span></div>
+        </div>
+      </div>
+
+      <!-- MATERI C -->
+      <div id="materiC" class="tab-content">
+        <h3>C. Syair</h3>
+        <p>Syair berasal dari bahasa Arab <em>"Syu'ur"</em> yang berarti perasaan. Syair digunakan untuk menceritakan kisah atau menyampaikan nasihat secara runtut.</p>
+        <h4>Ciri-Ciri Utama Syair:</h4>
+        <ul class="list-styled">
+          <li>Terdiri atas <strong>4 baris</strong> dalam satu bait.</li>
+          <li>Setiap baris terdiri atas 8–14 suku kata.</li>
+          <li>Memiliki pola rima akhir <strong>a-a-a-a</strong>.</li>
+          <li><strong>Semua baris adalah ISI</strong> (tidak memiliki sampiran).</li>
+          <li>Setiap baris saling terkait membentuk satu cerita/pesan utuh.</li>
+        </ul>
+
+        <div class="poem-card margin-top-md">
+          <div class="poem-line isi"><span class="badge-tag">Baris 1 (Isi)</span> Wahai muda kenali diri, <span class="rima">(rima: -ri / a)</span></div>
+          <div class="poem-line isi"><span class="badge-tag">Baris 2 (Isi)</span> Ialah perahu tamsil tubuhmu, <span class="rima">(rima: -mu / a*)</span></div>
+          <div class="poem-line isi"><span class="badge-tag">Baris 3 (Isi)</span> Tiadalah berapa lama hidupmu, <span class="rima">(rima: -mu / a*)</span></div>
+          <div class="poem-line isi"><span class="badge-tag">Baris 4 (Isi)</span> Ke akhirat jua kekal negerimu. <span class="rima">(rima: -mu / a*)</span></div>
+        </div>
+      </div>
+
+      <!-- MATERI D -->
+      <div id="materiD" class="tab-content">
+        <h3>D. Gurindam</h3>
+        <p>Gurindam adalah puisi rakyat yang berasal dari India (*Kirindam*). Berisi petuah, filsafat hidup, atau ajaran moral.</p>
+        <h4>Ciri-Ciri Utama Gurindam:</h4>
+        <ul class="list-styled">
+          <li>Terdiri atas <strong>2 baris</strong> dalam satu bait.</li>
+          <li>Memiliki pola rima akhir <strong>a-a</strong>.</li>
+          <li><strong>Baris 1</strong>: Berisi persoalan, syarat, atau sebab.</li>
+          <li><strong>Baris 2</strong>: Berisi jawaban, akibat, atau penjelasan dari baris 1.</li>
+          <li>Semua baris merupakan isi mengandung nasihat.</li>
+        </ul>
+
+        <div class="poem-card margin-top-md">
+          <div class="poem-line isi"><span class="badge-tag">Baris 1 (Sebab/Syarat)</span> Jika ilmu rajin dicari, <span class="rima">(rima: -ri / a)</span></div>
+          <div class="poem-line isi"><span class="badge-tag">Baris 2 (Akibat/Jawaban)</span> Masa depan cerah berseri. <span class="rima">(rima: -ri / a)</span></div>
+        </div>
+      </div>
+
+      <!-- MATERI E -->
+      <div id="materiE" class="tab-content">
+        <h3>E. Tabel Perbandingan Puisi Rakyat</h3>
+        <div class="table-responsive">
+          <table class="table-custom">
+            <thead>
+              <tr>
+                <th>Kriteria</th>
+                <th>Pantun</th>
+                <th>Syair</th>
+                <th>Gurindam</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Jumlah Baris</strong></td>
+                <td>4 baris per bait</td>
+                <td>4 baris per bait</td>
+                <td>2 baris per bait</td>
+              </tr>
+              <tr>
+                <td><strong>Pola Rima</strong></td>
+                <td>a-b-a-b</td>
+                <td>a-a-a-a</td>
+                <td>a-a</td>
+              </tr>
+              <tr>
+                <td><strong>Struktur Isi</strong></td>
+                <td>Baris 1-2 Sampiran, Baris 3-4 Isi</td>
+                <td>Semua baris adalah Isi</td>
+                <td>Baris 1 Sebab/Syarat, Baris 2 Akibat/Jawaban</td>
+              </tr>
+              <tr>
+                <td><strong>Fungsi Utama</strong></td>
+                <td>Hiburan, nasihat, pergaulan</td>
+                <td>Nasihat, cerita, pengajaran</td>
+                <td>Nasihat keagamaan, filosofi hidup</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. AYO MENGIDENTIFIKASI -->
+    <section id="identifikasi" class="card hidden-section">
+      <h2>🔍 Ayo Mengidentifikasi</h2>
+      <p>Bacalah puisi rakyat berikut dengan cermat, lalu jawablah pertanyaannya!</p>
+
+      <div class="poem-card margin-top-md">
+        <p><em>"Buah cempedak di luar pagar,<br>Tarik galah tolong jolokkan.<br>Saya budak baru belajar,<br>Kalau salah tolong tunjukkan."</em></p>
+      </div>
+
+      <div class="form-group margin-top-md">
+        <label>1. Apa jenis puisi rakyat di atas?</label>
+        <select id="identJenis" class="input-control">
+          <option value="">-- Pilih --</option>
+          <option value="Pantun">Pantun</option>
+          <option value="Syair">Syair</option>
+          <option value="Gurindam">Gurindam</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>2. Berapa pola rimanya?</label>
+        <select id="identRima" class="input-control">
+          <option value="">-- Pilih --</option>
+          <option value="a-a-a-a">a-a-a-a</option>
+          <option value="a-b-a-b">a-b-a-b</option>
+          <option value="a-a">a-a</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>3. Mana yang merupakan Sampiran?</label>
+        <select id="identSampiran" class="input-control">
+          <option value="">-- Pilih --</option>
+          <option value="1-2">Baris 1 dan 2</option>
+          <option value="3-4">Baris 3 dan 4</option>
+          <option value="none">Tidak memiliki sampiran</option>
+        </select>
+      </div>
+
+      <button class="btn btn-primary" onclick="periksaIdentifikasi()">🔍 Periksa Jawaban</button>
+      <div id="identFeedback" class="feedback-box hidden-section margin-top-md"></div>
+    </section>
+
+    <!-- 6. PERMAINAN EDUKATIF -->
+    <section id="game" class="card hidden-section">
+      <h2>🎮 Permainan Edukatif</h2>
+      <div class="tab-buttons">
+        <button class="tab-btn active" onclick="switchGame('game1')">G1: Tebak Jenis</button>
+        <button class="tab-btn" onclick="switchGame('game2')">G2: Pasangkan Unsur</button>
+        <button class="tab-btn" onclick="switchGame('game3')">G3: Detektif Rima</button>
+      </div>
+
+      <!-- GAME 1 -->
+      <div id="game1" class="tab-content active-tab text-center">
+        <h3>Game 1: Tebak Jenis Puisi</h3>
+        <p>Skor Game 1: <span id="scoreGame1" class="text-highlight">0</span></p>
+        <div id="game1PoemBox" class="poem-card margin-top-md">
+          <p id="game1Text">"Barangsiapa mengenal yang empat,<br>Maka ia itulah orang yang makrifat."</p>
+        </div>
+        <div class="button-group margin-top-md">
+          <button class="btn btn-secondary" onclick="checkGame1('Pantun')">Pantun</button>
+          <button class="btn btn-secondary" onclick="checkGame1('Syair')">Syair</button>
+          <button class="btn btn-secondary" onclick="checkGame1('Gurindam')">Gurindam</button>
+        </div>
+        <div id="game1Feedback" class="margin-top-md font-bold"></div>
+      </div>
+
+      <!-- GAME 2 -->
+      <div id="game2" class="tab-content text-center">
+        <h3>Game 2: Pasangkan Unsur Puisi</h3>
+        <p>Cocokkan Ciri berikut dengan Puisi Rakyat yang Tepat!</p>
+        <div class="poem-card margin-top-md">
+          <p><strong>Ciri:</strong> "Memiliki 2 baris per bait dengan pola rima a-a dan berisi sebab-akibat."</p>
+        </div>
+        <div class="button-group margin-top-md">
+          <button class="btn btn-secondary" onclick="checkGame2('Pantun')">Pantun</button>
+          <button class="btn btn-secondary" onclick="checkGame2('Syair')">Syair</button>
+          <button class="btn btn-secondary" onclick="checkGame2('Gurindam')">Gurindam</button>
+        </div>
+        <div id="game2Feedback" class="margin-top-md font-bold"></div>
+      </div>
+
+      <!-- GAME 3 -->
+      <div id="game3" class="tab-content text-center">
+        <h3>Game 3: Detektif Rima</h3>
+        <p>Tentukan Pola Rima dari Puisi Berikut!</p>
+        <div class="poem-card margin-top-md">
+          <p>"Dengar olehmu wahai anakda,<br>Muliaakan olehmu ibu bapa,<br>Tunjuk kelakuan jangan yang manja,<br>Pasti hidupmu akan bahagia."</p>
+        </div>
+        <div class="button-group margin-top-md">
+          <button class="btn btn-secondary" onclick="checkGame3('a-b-a-b')">a-b-a-b</button>
+          <button class="btn btn-secondary" onclick="checkGame3('a-a-a-a')">a-a-a-a</button>
+          <button class="btn btn-secondary" onclick="checkGame3('a-a')">a-a</button>
+        </div>
+        <div id="game3Feedback" class="margin-top-md font-bold"></div>
+      </div>
+
+      <!-- LENCANA -->
+      <div class="badges-container margin-top-lg">
+        <h4>🎖️ Lencana Digital Terkumpul:</h4>
+        <div id="badgesList" class="badges-flex">
+          <span class="badge-disabled" id="badge1">🏆 Detektif Rima</span>
+          <span class="badge-disabled" id="badge2">⭐ Ahli Pantun</span>
+          <span class="badge-disabled" id="badge3">👑 Penjelajah Sastra</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. KUIS INTERAKTIF -->
+    <section id="kuis" class="card hidden-section">
+      <h2>📝 Kuis Interaktif Puisi Rakyat</h2>
+      <p id="kuisIntro">Kuis terdiri atas 15 soal berjenjang. Kerjakan dengan teliti!</p>
+
+      <div id="quizContainer">
+        <div class="quiz-header">
+          <span id="quizProgress">Soal 1 dari 15</span>
+          <span id="quizLevel" class="badge-tag">Level: Mudah</span>
+        </div>
+        <div id="quizQuestion" class="quiz-question margin-top-md"></div>
+        <div id="quizOptions" class="quiz-options margin-top-md"></div>
+        <button id="btnNextQuiz" class="btn btn-primary margin-top-md hidden-section" onclick="nextQuestion()">Soal Berikutnya ➡️</button>
+      </div>
+
+      <div id="quizResult" class="hidden-section text-center margin-top-md">
+        <h3>🎉 Kuis Selesai!</h3>
+        <div class="score-display">
+          <span id="finalScoreText">0</span>
+        </div>
+        <p id="scoreSummary"></p>
+        <div class="button-group margin-top-md">
+          <button class="btn btn-success" onclick="simpanHasilKuis()">☁️ Simpan Hasil Ke Cloud</button>
+          <button class="btn btn-secondary" onclick="ulangKuis()">🔄 Ulangi Kuis</button>
+        </div>
+        <div id="quizPembahasan" class="text-left margin-top-lg"></div>
+      </div>
+    </section>
+
+    <!-- 8. LKPD DIGITAL -->
+    <section id="lkpd" class="card hidden-section">
+      <h2>📄 LKPD Digital (Lembar Kerja Peserta Didik)</h2>
+      <p>Isilah analisis unsur puisi rakyat berikut berdasarkan petunjuk guru!</p>
+
+      <form id="lkpdForm">
+        <div class="form-group">
+          <label>1. Tuliskan 1 contoh Pantun karya sendiri/cari dari sumber lain:</label>
+          <textarea id="lkpdPantun" class="input-control" rows="3" placeholder="Tuliskan pantun..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>2. Analisis Sampiran dan Isi dari Pantun di atas:</label>
+          <textarea id="lkpdAnalisisPantun" class="input-control" rows="2" placeholder="Sampiran: baris 1-2... Isi: baris 3-4..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>3. Jelaskan Amanat/Pesan Moral dari Gurindam berikut: <em>"Jika hendak mengenal orang berbangsa, lihat kepada budi dan bahasa."</em></label>
+          <textarea id="lkpdAmanatGurindam" class="input-control" rows="2" placeholder="Pesan moral..."></textarea>
+        </div>
+
+        <div class="button-group">
+          <button type="button" class="btn btn-success" onclick="kirimLKPD()">☁️ Kirim ke Google Spreadsheet</button>
+          <button type="button" class="btn btn-primary" onclick="cetakLKPD()">🖨️ Cetak / Simpan PDF</button>
+          <a href="[LINK_GOOGLE_DOKUMEN]" target="_blank" class="btn btn-secondary" id="linkDocsLKPD">📄 Buka Template Docs</a>
+        </div>
+      </form>
+    </section>
+
+    <!-- 9. HASIL BELAJARKU -->
+    <section id="hasil" class="card hidden-section">
+      <h2>📊 Hasil Belajarku</h2>
+      <div id="hasilContent" class="info-box margin-top-md">
+        <p><strong>Nama:</strong> <span id="resNama">-</span></p>
+        <p><strong>Kelas:</strong> <span id="resKelas">-</span></p>
+        <p><strong>Nilai Kuis Terbaru:</strong> <span id="resNilai" class="text-highlight">-</span></p>
+        <p><strong>Status Ketuntasan:</strong> <span id="resStatus">-</span></p>
+        <p><strong>Lencana Diraih:</strong> <span id="resLencana">-</span></p>
+      </div>
+    </section>
+
+    <!-- 10. REFLEKSI PEMBELAJARAN -->
+    <section id="refleksi" class="card hidden-section">
+      <h2>💭 Refleksi Pembelajaran</h2>
+      <form id="refleksiForm">
+        <div class="form-group">
+          <label>1. Apa hal paling menarik yang kamu pelajari hari ini?</label>
+          <textarea id="ref1" class="input-control" rows="2"></textarea>
+        </div>
+        <div class="form-group">
+          <label>2. Apa perbedaan pantun, syair, dan gurindam yang paling kamu ingat?</label>
+          <textarea id="ref2" class="input-control" rows="2"></textarea>
+        </div>
+        <div class="form-group">
+          <label>3. Bagian mana yang menurutmu masih sulit?</label>
+          <textarea id="ref3" class="input-control" rows="2"></textarea>
+        </div>
+        <div class="form-group">
+          <label>4. Bagaimana perasaanmu belajar hari ini?</label>
+          <select id="ref4" class="input-control">
+            <option value="Sangat Senang">😀 Sangat Senang</option>
+            <option value="Biasa Saja">😐 Biasa Saja</option>
+            <option value="Bingung">😕 Bingung</option>
+          </select>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="kirimRefleksi()">📤 Kirim Refleksi</button>
+      </form>
+    </section>
+
+    <!-- 11. PETUNJUK GURU / DASBOR -->
+    <section id="guru" class="card hidden-section">
+      <h2>🔒 Dasbor Guru Bahasa Indonesia</h2>
+      
+      <div id="guruAuth" class="margin-top-md">
+        <p>Masukkan PIN Guru untuk Mengakses Dasbor:</p>
+        <input type="password" id="pinGuru" class="input-control" placeholder="PIN Default: 1234">
+        <button class="btn btn-primary margin-top-sm" onclick="loginGuru()">Masuk Dasbor</button>
+      </div>
+
+      <div id="guruContent" class="hidden-section margin-top-md">
+        <h3>📈 Rekapitulasi Analitik Hasil Belajar</h3>
+        <div class="grid-menu margin-top-md">
+          <div class="menu-card">
+            <h4>Total Siswa Kuis</h4>
+            <p id="dashTotalSiswa" class="title-primary">0</p>
+          </div>
+          <div class="menu-card">
+            <h4>Rata-Rata Nilai</h4>
+            <p id="dashRataRata" class="title-primary">0</p>
+          </div>
+          <div class="menu-card">
+            <h4>Persentase Ketuntasan</h4>
+            <p id="dashKetuntasan" class="title-primary">0%</p>
+          </div>
+        </div>
+
+        <div class="button-group margin-top-lg">
+          <a href="[LINK_GOOGLE_SPREADSHEET]" target="_blank" class="btn btn-success">📊 Buka Google Spreadsheet Data</a>
+          <a href="[LINK_GOOGLE_DOKUMEN]" target="_blank" class="btn btn-secondary">📄 Buka Google Dokumen Modul</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL PETUNJUK -->
+  <div id="modalPetunjuk" class="modal-overlay hidden-section">
+    <div class="modal-card">
+      <h3>❓ Petunjuk Penggunaan Aplikasi</h3>
+      <ol class="list-styled">
+        <li>Isi Nama Lengkap dan Kelas pada Halaman Pembuka, lalu klik <strong>Mulai Petualangan</strong>.</li>
+        <li>Gunakan Menu Navigasi di bagian atas untuk berpindah materi dan kegiatan.</li>
+        <li>Pelajari materi Pantun, Syair, dan Gurindam secara runtut.</li>
+        <li>Coba fitur Mengidentifikasi dan ikuti 3 Permainan Edukatif untuk mengoleksi Lencana.</li>
+        <li>Kerjakan Kuis Interaktif 15 Soal hingga selesai, lalu simpan nilaimu.</li>
+        <li>Lengkapi LKPD Digital dan Refleksi sebelum mengakhiri pembelajaran.</li>
+      </ol>
+      <button class="btn btn-danger margin-top-md" onclick="tutupModalPetunjuk()">Tutup</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
